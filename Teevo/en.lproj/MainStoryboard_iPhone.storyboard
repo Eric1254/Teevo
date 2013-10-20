@@ -1333,7 +1333,7 @@
                                         <color key="textColor" red="1" green="1" blue="0.047058828179999998" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="164" sectionHeaderHeight="22" sectionFooterHeight="22" id="PId-uN-Yeo">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="164" sectionHeaderHeight="22" sectionFooterHeight="22" id="PId-uN-Yeo">
                                         <rect key="frame" x="-3" y="91" width="325" height="369"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="0.62745098040000002" green="0.20000000000000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1358,17 +1358,18 @@
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5002" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fdb-3B-4G3">
-                                                            <rect key="frame" x="58" y="9" width="196" height="19"/>
+                                                            <rect key="frame" x="58" y="14" width="196" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5003" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qqz-6f-aWd">
-                                                            <rect key="frame" x="58" y="29" width="196" height="19"/>
+                                                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5004" contentMode="left" text="archives" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ww3-nF-m2k">
+                                                            <rect key="frame" x="262" y="18" width="48" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
                                                     </subviews>
@@ -1390,7 +1391,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1002" contentMode="left" text="UITextView displays a region that can contain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8E6-Sd-jwS">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1002" contentMode="left" text="Total points earns" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8E6-Sd-jwS">
                                         <rect key="frame" x="52" y="63" width="229" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -1420,7 +1421,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhR-T4-S14" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="931" y="-1815"/>
+            <point key="canvasLocation" x="273" y="-1668"/>
         </scene>
         <!--Teevo Tv View Controller-->
         <scene sceneID="H2u-3l-bpB">
@@ -1617,6 +1618,13 @@
                                     <action selector="btnPointsAction:" destination="djK-YH-OqH" eventType="touchUpInside" id="Agk-eh-Dxb"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5002" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Sa-Df-ey2">
+                                <rect key="frame" x="292" y="53" width="30" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.97254901959999995" green="0.92549019610000005" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Nhd-WN-MES">
                                 <rect key="frame" x="20" y="9" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1727,25 +1735,32 @@
                                                     <rect key="frame" x="8" y="6" width="50" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5001" contentMode="left" text="01" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XfQ-Xm-6Hd">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5001" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XfQ-Xm-6Hd">
                                                     <rect key="frame" x="13" y="11" width="40" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5002" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cnp-aI-kzM">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5002" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cnp-aI-kzM">
                                                     <rect key="frame" x="80" y="12" width="196" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.97254901959999995" green="0.92549019610000005" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="arrow-yellow.png" id="2IN-hB-8bk">
                                                     <rect key="frame" x="285" y="22" width="11" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e9M-jS-g5a">
+                                                    <rect key="frame" x="13" y="35" width="40" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -1837,6 +1852,7 @@
                         <outlet property="SelectEdition" destination="dZQ-al-blf" id="jmo-OA-dzo"/>
                         <outlet property="mnthLbl" destination="wpj-vj-RpA" id="xdh-87-bJY"/>
                         <outlet property="myTableView" destination="grW-OI-Y2a" id="joU-RR-5sz"/>
+                        <outlet property="pointLblcount" destination="5Sa-Df-ey2" id="YhY-0e-shR"/>
                         <outlet property="todayQuizBtn" destination="OfJ-np-NKz" id="LGu-VB-3iX"/>
                         <outlet property="years" destination="rhL-Hg-Stq" id="pK7-Lb-oO1"/>
                         <outlet property="yearsLbl" destination="Ia9-Gq-r2q" id="bIW-WE-iga"/>
@@ -1844,7 +1860,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PEC-X9-uUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1020" y="-1682"/>
+            <point key="canvasLocation" x="441" y="-1722"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="E9N-Ha-mZu">
@@ -2172,6 +2188,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                 <relationship kind="outlet" name="arcchScrollview" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="mnthLbl" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="pointLblcount" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="todayQuizBtn" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="todayQuizScrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="viewArchive" candidateClass="UIView"/>

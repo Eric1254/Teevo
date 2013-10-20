@@ -24,12 +24,22 @@
 #define FUNC_TODAYS_QUIZ @"gettodaysquiz"
 #define FUNC_MY_TEEVO @"getmyteevo"
 #define FUNC_QUIZ_ARCHIEVE @"getarchives"
-#define FUNC_DUMMYARCHIVES @"dummyarchives"
+#define FUNC_DUMMYARCHIVES @"getarchivesbyquizid"
 #define FUNC_GET_QUIZ_ARCHIVE @"getquizbyarchives"
 #define FUNC_ADDPOINTS @"addpoints"
 #define FUNC_GETALLPOINTS @"getallpoints"
+#define FUNC_DUMMYALLPOINTS @"dummypoints"
 #define FUNC_GETALLPOINTSBYMONTH @"getallpointsbymonth"
-#define FUNC_TREADER_EBOOK @"gettodaysquiz"
+#define FUNC_DUMMYGETALLPOINTSBYMONTH @"dummypointsbymonth"
+#define FUNC_POINTSBYMONTHID @"getpointsbymonthid"
+
+
+#define IPHONE_5 568
+#define IPHONE_4 480
+
+#define iPad    UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
+#define IS_IPHONE_5 ( [ [ UIScreen mainScreen ] bounds ].size.height == IPHONE_5 )
+#define IS_IPHONE_4 ( [ [ UIScreen mainScreen ] bounds ].size.height == IPHONE_4 )
 
 
 /*

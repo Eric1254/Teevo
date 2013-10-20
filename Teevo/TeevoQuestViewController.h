@@ -9,6 +9,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DropDownView.h"
+@class PleaseWait;
 @class AbstractActionSheetPicker;
 @interface TeevoQuestViewController : UIViewController<DropDownViewDelegate>
 @property (strong, nonatomic) IBOutlet UIScrollView *todayQuizScrollView;
@@ -17,16 +18,16 @@
 @property (weak, nonatomic) IBOutlet UIView *viewArchive;
 @property (weak, nonatomic) IBOutlet UIView *viewPoints;
 @property (strong, nonatomic) NSDictionary *sourceDictionary;
-
+@property(nonatomic,strong)PleaseWait *pleasewait;
 @property(nonatomic,strong)UIView * view1;
 
 @property(nonatomic,strong)IBOutlet UITableView * myTableView;
 
 
-@property(nonatomic,strong)NSMutableArray * mainArr,*btnSelectionArr,*yearsArr,*monthArr;
+@property(nonatomic,strong)NSMutableArray * mainArr,*btnSelectionArr,*yearsArr,*monthArr,*monthNameArr;
 
 @property(nonatomic,strong)NSMutableArray* QuiZeIDArr,*QuiZNameArr;
-@property(nonatomic,strong)NSString * QuizeID;
+@property(nonatomic,strong)NSString * QuizeID,*totalPoints;
 
 - (IBAction)btnBackFromTeevoQuestAction:(id)sender;
 - (IBAction)btnMenuTeevoQuestAction:(id)sender;
@@ -96,6 +97,10 @@
 
 
 @property(nonatomic,strong)NSMutableArray *submitArr;
-@property(nonatomic,strong)NSArray *pointsDataArr;
+@property(nonatomic,strong)NSArray *pointsDataArr,*allPointArr;
+
+
+@property(nonatomic,strong)IBOutlet UILabel*pointLblcount;
+@property(nonatomic,strong)NSNumber * monthNumber;
 
 @end
