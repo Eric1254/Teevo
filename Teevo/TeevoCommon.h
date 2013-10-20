@@ -28,7 +28,20 @@
 #define FUNC_GET_QUIZ_ARCHIVE @"getquizbyarchives"
 #define FUNC_ADDPOINTS @"addpoints"
 #define FUNC_GETALLPOINTS @"getallpoints"
+#define FUNC_DUMMYALLPOINTS @"dummypoints"
 #define FUNC_GETALLPOINTSBYMONTH @"getallpointsbymonth"
+#define FUNC_DUMMYGETALLPOINTSBYMONTH @"dummypointsbymonth"
+
+
+
+#define IPHONE_5 568
+#define IPHONE_4 480
+
+#define iPad    UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
+#define IS_IPHONE_5 ( [ [ UIScreen mainScreen ] bounds ].size.height == IPHONE_5 )
+#define IS_IPHONE_4 ( [ [ UIScreen mainScreen ] bounds ].size.height == IPHONE_4 )
+
+
 /*
 
  api url >> http://teevo.lpipl.com/teevo_api/api.php

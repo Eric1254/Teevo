@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Teevo/TeevoQuestViewController.m"
-         timestampString = "403727032.748487"
+         timestampString = "403931440.805066"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "554"
-         endingLineNumber = "554"
+         startingLineNumber = "777"
+         endingLineNumber = "777"
          landmarkName = "-getTodaysQuizFromServer"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Teevo/TeevoQuestViewController.m"
-         timestampString = "403727032.748487"
+         timestampString = "403930953.993496"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "130"
-         endingLineNumber = "130"
+         startingLineNumber = "261"
+         endingLineNumber = "261"
          landmarkName = "-updateTodayQuizWithAnswer"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Teevo/TeevoQuestViewController.m"
-         timestampString = "403727032.748487"
+         timestampString = "403930953.993496"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "414"
-         endingLineNumber = "414"
+         startingLineNumber = "547"
+         endingLineNumber = "547"
          landmarkName = "-btnPointsAction:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Teevo/TeevoQuestViewController.m"
-         timestampString = "403727032.748487"
+         timestampString = "403931440.805066"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "598"
-         endingLineNumber = "598"
+         startingLineNumber = "824"
+         endingLineNumber = "824"
          landmarkName = "-getQuizArchieveFromServer"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,24 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Teevo/TeevoQuestViewController.m"
-         timestampString = "403727032.748487"
+         timestampString = "403931440.805066"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "438"
-         endingLineNumber = "438"
-         landmarkName = "-getPointsData"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Teevo/TeevoQuestViewController.m"
-         timestampString = "403727032.748487"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "563"
-         endingLineNumber = "563"
+         startingLineNumber = "789"
+         endingLineNumber = "789"
          landmarkName = "-getQuizArchieveFromServer"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Teevo/TeevoQuestViewController.m"
-         timestampString = "403727391.567656"
+         timestampString = "403931440.805066"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "819"
-         endingLineNumber = "819"
+         startingLineNumber = "1051"
+         endingLineNumber = "1051"
          landmarkName = "-EditionWasSelected:element:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Teevo/TeevoQuestViewController.m"
-         timestampString = "403727032.748487"
+         timestampString = "403930953.993496"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "270"
-         endingLineNumber = "270"
+         startingLineNumber = "402"
+         endingLineNumber = "402"
          landmarkName = "-updateTodayTableQuiz"
          landmarkType = "5">
       </FileBreakpoint>
@@ -112,25 +99,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Teevo/TeevoQuestViewController.m"
-         timestampString = "403727032.748487"
+         timestampString = "403930953.993496"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "322"
-         endingLineNumber = "322"
+         startingLineNumber = "454"
+         endingLineNumber = "454"
          landmarkName = "-updateArchivesData"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Teevo/TeevoQuestViewController.m"
-         timestampString = "403726583.870277"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "101"
-         endingLineNumber = "101"
-         landmarkName = "-submitBtn:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -144,6 +118,32 @@
          startingLineNumber = "38"
          endingLineNumber = "38"
          landmarkName = "-viewWillAppear:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Teevo/TeevoQuestViewController.m"
+         timestampString = "403931440.805066"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1199"
+         endingLineNumber = "1199"
+         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Teevo/TeevoQuestViewController.m"
+         timestampString = "403930953.993496"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "528"
+         endingLineNumber = "528"
+         landmarkName = "-btnArchiveAction:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -11,6 +11,9 @@
 		332932461809326C00831D61 /* QuizView.m in Sources */ = {isa = PBXBuildFile; fileRef = 332932451809326C00831D61 /* QuizView.m */; };
 		332932481809327D00831D61 /* QuizView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 332932471809327D00831D61 /* QuizView.xib */; };
 		33FEB91E1809AC1F0056878B /* VCRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FEB91D1809AC1F0056878B /* VCRadioButton.m */; };
+		8D14735818137D6C00485B0A /* PleaseWait_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D14735418137D6C00485B0A /* PleaseWait_iPhone.xib */; };
+		8D14735918137D6C00485B0A /* PleaseWait.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D14735618137D6C00485B0A /* PleaseWait.m */; };
+		8D14735A18137D6C00485B0A /* PleaseWait.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D14735718137D6C00485B0A /* PleaseWait.xib */; };
 		8D36856E180AACC200BB2C07 /* button_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D36856D180AACC200BB2C07 /* button_back.png */; };
 		8D615CF8180A98A300258B3F /* DropDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D615CF7180A98A300258B3F /* DropDownView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8D615CFE180AA8BF00258B3F /* footer_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D615CF9180AA84700258B3F /* footer_bg.png */; };
@@ -110,6 +113,10 @@
 		332932471809327D00831D61 /* QuizView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuizView.xib; sourceTree = "<group>"; };
 		33FEB91C1809AC1F0056878B /* VCRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCRadioButton.h; sourceTree = "<group>"; };
 		33FEB91D1809AC1F0056878B /* VCRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCRadioButton.m; sourceTree = "<group>"; };
+		8D14735418137D6C00485B0A /* PleaseWait_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PleaseWait_iPhone.xib; sourceTree = "<group>"; };
+		8D14735518137D6C00485B0A /* PleaseWait.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PleaseWait.h; sourceTree = "<group>"; };
+		8D14735618137D6C00485B0A /* PleaseWait.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PleaseWait.m; sourceTree = "<group>"; };
+		8D14735718137D6C00485B0A /* PleaseWait.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PleaseWait.xib; sourceTree = "<group>"; };
 		8D36856D180AACC200BB2C07 /* button_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_back.png; sourceTree = "<group>"; };
 		8D615CF6180A98A300258B3F /* DropDownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownView.h; sourceTree = "<group>"; };
 		8D615CF7180A98A300258B3F /* DropDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownView.m; sourceTree = "<group>"; };
@@ -253,6 +260,17 @@
 			name = JSONKit;
 			sourceTree = "<group>";
 		};
+		8D14734E18137ABF00485B0A /* PleaseWait */ = {
+			isa = PBXGroup;
+			children = (
+				8D14735418137D6C00485B0A /* PleaseWait_iPhone.xib */,
+				8D14735518137D6C00485B0A /* PleaseWait.h */,
+				8D14735618137D6C00485B0A /* PleaseWait.m */,
+				8D14735718137D6C00485B0A /* PleaseWait.xib */,
+			);
+			name = PleaseWait;
+			sourceTree = "<group>";
+		};
 		8D615CF5180A989200258B3F /* DropDown */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +373,7 @@
 		974C83FB17CDA99700E4B43C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8D14734E18137ABF00485B0A /* PleaseWait */,
 				8D615CF5180A989200258B3F /* DropDown */,
 				3329323E1809105400831D61 /* JSONKit */,
 				97BD6B9617F92A92002DE4EE /* TeevoCommon.h */,
@@ -576,6 +595,8 @@
 				8D901CEB180B4B0E00FFDCFF /* arrow-yellow.png in Resources */,
 				8D901CEC180B4B0E00FFDCFF /* cancel.png in Resources */,
 				8D901CED180B4B0E00FFDCFF /* check-green.png in Resources */,
+				8D14735818137D6C00485B0A /* PleaseWait_iPhone.xib in Resources */,
+				8D14735A18137D6C00485B0A /* PleaseWait.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +635,7 @@
 				8D901D07180B5AF100FFDCFF /* ActionSheetDistancePicker.m in Sources */,
 				8D901D08180B5AF100FFDCFF /* DistancePickerView.m in Sources */,
 				8DBAA1B5180E85F600AFA8C2 /* PointsViewController.m in Sources */,
+				8D14735918137D6C00485B0A /* PleaseWait.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

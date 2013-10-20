@@ -16,11 +16,13 @@
 #import "ActionSheetDatePicker.h"
 #import "ActionSheetStringPicker.h"
 #import "PointsViewController.h"
+#import "PleaseWait.h"
 @interface TeevoQuestViewController ()
 
 @end
 
 @implementation TeevoQuestViewController
+@synthesize pleasewait;
 #pragma mark -
 #pragma mark showAlert
 
@@ -62,6 +64,21 @@
     [self.monthArr addObject:@"11"];
     [self.monthArr addObject:@"12"];
     
+    self.monthNameArr = [[NSMutableArray alloc] init];
+    [self.monthNameArr addObject:@"January"];
+    [self.monthNameArr addObject:@"Febraury"];
+    [self.monthNameArr addObject:@"March"];
+    [self.monthNameArr addObject:@"April"];
+    [self.monthNameArr addObject:@"May"];
+    [self.monthNameArr addObject:@"June"];
+    [self.monthNameArr addObject:@"July"];
+    [self.monthNameArr addObject:@"August"];
+    [self.monthNameArr addObject:@"September"];
+    [self.monthNameArr addObject:@"October"];
+    [self.monthNameArr addObject:@"November"];
+    [self.monthNameArr addObject:@"December"];
+    
+    
     _view1= [[UIView alloc] initWithFrame:CGRectMake(0, 400, 320, 60)];
     _view1.backgroundColor = [UIColor yellowColor];
     
@@ -90,22 +107,60 @@
 	// Do any additional setup after loading the view.
 }
 
+-(void)AddLoading
+{
+    if(pleasewait){
+        [pleasewait.view removeFromSuperview];
+        
+        pleasewait = nil;
+    }
+    
+    NSString *controllerName = nil;
+    
+    if (iPad) {
+        controllerName = @"PleaseWait";
+    }else{
+        controllerName = @"PleaseWait_iPhone";
+    }
+    
+    pleasewait = [[PleaseWait alloc] initWithNibName:controllerName bundle:nil];
+    
+    [self.view addSubview:pleasewait.view];
+}
+
+
+-(void)removeLoading
+{
+    if(pleasewait){
+        [pleasewait.view removeFromSuperview];
+        
+        pleasewait = nil;
+    }
+    
+    
+}
+
 
 -(void)viewWillAppear:(BOOL)animated{
     self.answercount = 0;
     self.submitArr = [NSMutableArray array];
     self.SelectionArr = [[NSMutableArray alloc] init];
     self.selectedIndexArr = [[NSMutableArray alloc] init];
+    [self AddLoading];
     [self getTodaysQuizFromServer];
+    [self getPointsData];
+    
+    
+    
 }
 -(void)submitBtn:(id)sender{
     NSLog(@"lll");
     if ([self.QuizString isEqualToString:@"PointsQuiz"]) {
         
     }else if([self.QuizString isEqualToString:@"TodayQuiz"]){
-       
+       [self updateTodayQuizWithAnswer];
     }else{
-        [self updateTodayQuizWithAnswer];
+        [self updateArchiveQuizWithAnswer];
     }
     //self.QuizString = @"TodayQuiz";
     //self.QuizString = @"ArchiveQuiz";
@@ -126,6 +181,82 @@
     }
 }
 
+-(void)updateArchiveQuizWithAnswer{
+    NSMutableDictionary * mdic = [[NSMutableDictionary alloc] init];
+    
+    [mdic setObject:@"3" forKey:@"userid"];
+    [mdic setObject:[NSString stringWithFormat:@"%d",[self.todayQuizID intValue] ] forKey:@"quizid"];
+    NSString * points = [NSString stringWithFormat:@"%d",self.selectedIndexArr.count];
+    [mdic setObject:points forKey:@"points"];
+    [mdic setObject:@"1" forKey:@"isarcheive"];
+    //[mdic setObject:self.yearsLbl.text forKey:@"year"];
+    NSDictionary* info = [NSDictionary dictionaryWithDictionary:mdic];
+    
+    NSString *jsonStr = [info JSONString];
+    
+    NSString *urlAsString = SERVER_URL;
+    
+    NSURL *url = [NSURL URLWithString:urlAsString];
+    
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    [urlRequest setTimeoutInterval:60.0f];
+    
+    [urlRequest setHTTPMethod:@"POST"];
+    
+    NSString *body = [NSString stringWithFormat:@"functionName=%@&json=%@}",FUNC_ADDPOINTS,jsonStr];
+    
+    [urlRequest setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    [NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *jsonData, NSError *error)
+     {
+         if ([jsonData length] >0 && error == nil)
+         {
+             JSONDecoder* decoder = [[JSONDecoder alloc]
+                                     initWithParseOptions:JKParseOptionNone];
+             id json = [decoder objectWithData:jsonData];
+             self.sourceDictionary = [[NSDictionary alloc] initWithDictionary:json];
+             
+             NSLog(@"Got Data: %@ ",json);
+             
+             if ([json isKindOfClass:[NSDictionary class]]) {
+                 NSDictionary * dicOne = (NSDictionary*)json;
+                 
+                 NSDictionary * dic= [dicOne objectForKey:@"status"];
+                 
+                 if ([[dic objectForKey:@"status_id"] integerValue]==0) {
+                     
+                     UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"TEEVO" message:@"No Record Found" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+                     
+                     [alertView performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES
+                      ];
+                     
+                 }
+                 
+             }
+             
+             if (json != nil && error == nil)
+             {
+                 NSLog(@"Successfully deserialized...");
+             }
+             else if (error != nil)
+             {
+                 NSLog(@"An error happened while deserializing the JSON data.");
+             }
+         }
+         else if ([jsonData length] == 0 && error == nil)
+         {
+             NSLog(@"Nothing was downloaded.");
+         }
+         else if (error != nil)
+         {
+             NSLog(@"Error happened = %@", error);
+         }
+     }];
+    //[self addViewToArchieves];
+}
 
 -(void)updateTodayQuizWithAnswer{
     NSMutableDictionary * mdic = [[NSMutableDictionary alloc] init];
@@ -240,6 +371,7 @@
     
     self.PickerView.hidden = YES;
     self.myTableView.frame = CGRectMake(0, 100, self.myTableView.frame.size.height, self.myTableView.frame.size.height+40);
+    [self AddLoading];
     [self getTodaysQuizFromServer];
     
     //[self updateTodayTableQuiz];
@@ -388,7 +520,7 @@
     // NSLog(@"MainArr :%@",self.mainArr);
     
     [self.myTableView reloadData];
-    
+    [self removeLoading];
 }
 
 
@@ -408,17 +540,101 @@
 }
 
 - (IBAction)btnPointsAction:(id)sender {
-    
-    [self getPointsData];
+    [_view1 setHidden:YES];
+    [self AddLoading];
+    [self getListofPoint];
     
     self.QuizString = @"PointsQuiz";
     self.PickerView.hidden = YES;
     self.myTableView.frame = CGRectMake(0, 100, self.myTableView.frame.size.height, self.myTableView.frame.size.height+40);
     
-    [self.myTableView reloadData];
+    
 //    [self.viewTodaysQuiz setHidden:YES];
 //    [self.viewArchive setHidden:YES];
 //    [self.viewPoints setHidden:NO];
+}
+
+-(void)getListofPoint{
+    NSMutableDictionary * mdic = [[NSMutableDictionary alloc] init];
+    //{"userid":"3"}
+    [mdic setObject:@"3" forKey:@"userid"];
+    //[mdic setObject:self.yearsLbl.text forKey:@"year"];
+    NSDictionary* info = [NSDictionary dictionaryWithDictionary:mdic];
+    
+    NSString *jsonStr = [info JSONString];
+    
+    NSString *urlAsString = SERVER_URL;
+    
+    NSURL *url = [NSURL URLWithString:urlAsString];
+    
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    [urlRequest setTimeoutInterval:60.0f];
+    
+    [urlRequest setHTTPMethod:@"POST"];
+    
+    NSString *body = [NSString stringWithFormat:@"functionName=%@&json=%@}",FUNC_DUMMYGETALLPOINTSBYMONTH,jsonStr];
+    
+    [urlRequest setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    [NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *jsonData, NSError *error)
+     {
+         if ([jsonData length] >0 && error == nil)
+         {
+             JSONDecoder* decoder = [[JSONDecoder alloc]
+                                     initWithParseOptions:JKParseOptionNone];
+             id json = [decoder objectWithData:jsonData];
+             //self.sourceDictionary = [[NSDictionary alloc] initWithDictionary:json];
+             
+             NSLog(@"Got Data: %@ ",json);
+             
+             if ([json isKindOfClass:[NSDictionary class]]) {
+                 NSDictionary * dicOne = (NSDictionary*)json;
+                 
+                 NSDictionary * dic= [dicOne objectForKey:@"status"];
+                 self.allPointArr = [dicOne objectForKey:@"data"];
+                 
+                 [self.myTableView reloadData];
+                 //[self perfo];
+                // [self performSelectorOnMainThread:@selector(removeLoading) withObject:nil waitUntilDone:YES];
+                 //self.pointLblcount.text = [NSString stringWithFormat:@"%@",[[self.pointsDataArr objectAtIndex:0] objectForKey:@"points"]];
+                 
+                 
+                 if ([[dic objectForKey:@"status_id"] integerValue]==0) {
+                     
+                     UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"TEEVO" message:@"No Record Found" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+                     
+                     [alertView performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES
+                      ];
+                     
+                 }
+                 
+             }
+             
+             if (json != nil && error == nil)
+             {
+                 NSLog(@"Successfully deserialized...");
+             }
+             else if (error != nil)
+             {
+                 NSLog(@"An error happened while deserializing the JSON data.");
+             }
+         }
+         else if ([jsonData length] == 0 && error == nil)
+         {
+             NSLog(@"Nothing was downloaded.");
+         }
+         else if (error != nil)
+         {
+             NSLog(@"Error happened = %@", error);
+         }
+         
+         
+     }];
+    [self performSelector:@selector(removeLoading) withObject:nil afterDelay:4.0];
+    
 }
 
 -(void)getPointsData{
@@ -440,7 +656,7 @@
     
     [urlRequest setHTTPMethod:@"POST"];
     
-    NSString *body = [NSString stringWithFormat:@"functionName=%@&json=%@}",FUNC_GETALLPOINTS,jsonStr];
+    NSString *body = [NSString stringWithFormat:@"functionName=%@&json=%@}",FUNC_DUMMYALLPOINTS,jsonStr];
     
     [urlRequest setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
     
@@ -463,6 +679,10 @@
                  NSDictionary * dic= [dicOne objectForKey:@"status"];
                  self.pointsDataArr = [dicOne objectForKey:@"data"];
                  
+                 
+                 self.pointLblcount.text = [NSString stringWithFormat:@"%@",[[self.pointsDataArr objectAtIndex:0] objectForKey:@"points"]];
+                 
+                 
                  if ([[dic objectForKey:@"status_id"] integerValue]==0) {
                      
                      UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"TEEVO" message:@"No Record Found" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
@@ -471,6 +691,8 @@
                       ];
                      
                  }
+                 
+                 [self performSelectorOnMainThread:@selector(removeLoading) withObject:nil waitUntilDone:YES];
                  
              }
              
@@ -532,6 +754,7 @@
                 // self.QuizString = @"ArchiveQuiz";
                     [self updateTodayTableQuiz];
                  
+                 
 //                 if ([self.QuizString isEqualToString:@"TodayQuiz"]) {
 //                     
 //                 }else if ([self.QuizString isEqualToString:@"ArchiveQuiz"]){
@@ -556,7 +779,10 @@
             // d_SHOWALERT(@"TEEVO", [error description]);
              [self performSelectorOnMainThread:@selector(showAlert:) withObject:[error description] waitUntilDone:YES];
          }
+         [self performSelectorOnMainThread:@selector(removeLoading) withObject:nil waitUntilDone:YES];
      }];
+    
+    
     //[self addViewToTodaysQuiz];
 }
 
@@ -613,6 +839,7 @@
                     //[self updateTodayTableQuiz];
                      self.QuizString = @"ArchiveQuiz";
                      [self updateArchivesData];
+                     
                  }
                  
              }
@@ -634,8 +861,10 @@
          {
              NSLog(@"Error happened = %@", error);
          }
+         
+         //[self performSelectorOnMainThread:@selector(removeLoading) withObject:nil waitUntilDone:YES];
      }];
-    [self addViewToArchieves];
+    //[self addViewToArchieves];
 }
 
 - (void) getQuizBYArchieveFromServer
@@ -679,6 +908,7 @@
              {
                  NSLog(@"Successfully deserialized...");
                  [self addQUIZViewToArchieves];
+                 
              }
              else if (error != nil)
              {
@@ -693,6 +923,8 @@
          {
              NSLog(@"Error happened = %@", error);
          }
+         
+         [self performSelectorOnMainThread:@selector(removeLoading) withObject:nil waitUntilDone:YES];
      }];
     
 }
@@ -820,7 +1052,7 @@
 {
     self.SelectEdition.text = [self.QuiZNameArr objectAtIndex:[selectedDate integerValue]];
     self.QuizeID = [self.QuiZeIDArr objectAtIndex:[selectedDate integerValue]];
-    
+    [self AddLoading];
     [self getQuizArchieveFromServer];
     
 }
@@ -950,7 +1182,7 @@
     
     if ([self.QuizString isEqualToString:@"PointsQuiz"]) {
         
-        return 10;
+        return self.allPointArr.count;
         
     }else{
         
@@ -978,6 +1210,16 @@
             
             
         }
+        
+        
+        NSDictionary * pointDic = [self.allPointArr objectAtIndex:indexPath.row];
+        NSString * totalPoints = [pointDic objectForKey:@"totalpoints"];
+        NSNumber * monthNumber = [pointDic objectForKey:@"month"];
+        
+        UILabel * allPoints = (UILabel*)[cell viewWithTag:5001];
+        allPoints.text = totalPoints;
+        UILabel * monthsLbl = (UILabel*)[cell viewWithTag:5002];
+        monthsLbl.text = [NSString stringWithFormat:@"Daily devotional %@",[self.monthNameArr objectAtIndex:[monthNumber integerValue]-1]];
         
         return cell;
         
@@ -1110,6 +1352,8 @@
 //        detail.sourceDictionary = self.sourceDictionary;
 //        detail.submitArr = self.submitArr;
 //        detail.answercount = self.answercount;
+        
+        
         [self.navigationController pushViewController: detail animated: YES];
     }else{
         
@@ -1293,7 +1537,9 @@
             [self.myTableView bringSubviewToFront:_view1];
             
         }else{
-            [_view1 setHidden:YES];
+            [_view1 setHidden:NO];
+            [self.myTableView bringSubviewToFront:_view1];
+            //[_view1 setHidden:YES];
         }
     }
     //if([_view1 superview])
