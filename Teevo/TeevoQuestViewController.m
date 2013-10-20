@@ -448,7 +448,7 @@
    // NSLog(@"MainArr :%@",self.mainArr);
     
     [self.myTableView reloadData];
-    
+    [self removeLoading];
 }
 
 -(void)updateArchivesData{
@@ -638,6 +638,7 @@
 }
 
 -(void)getPointsData{
+    [self AddLoading];
     NSMutableDictionary * mdic = [[NSMutableDictionary alloc] init];
     //{"userid":"3"}
     [mdic setObject:@"3" forKey:@"userid"];
@@ -692,7 +693,7 @@
                      
                  }
                  
-                 [self performSelectorOnMainThread:@selector(removeLoading) withObject:nil waitUntilDone:YES];
+                 //[self performSelectorOnMainThread:@selector(removeLoading) withObject:nil waitUntilDone:YES];
                  
              }
              
@@ -714,6 +715,8 @@
              NSLog(@"Error happened = %@", error);
          }
      }];
+    
+    [self performSelector:@selector( removeLoading) withObject:nil afterDelay:1.0];
     
 }
 
@@ -779,7 +782,7 @@
             // d_SHOWALERT(@"TEEVO", [error description]);
              [self performSelectorOnMainThread:@selector(showAlert:) withObject:[error description] waitUntilDone:YES];
          }
-         [self performSelectorOnMainThread:@selector(removeLoading) withObject:nil waitUntilDone:YES];
+         //[self performSelectorOnMainThread:@selector(removeLoading) withObject:nil waitUntilDone:YES];
      }];
     
     
@@ -794,7 +797,13 @@
     //[mdic setObject:self.yearsLbl.text forKey:@"year"];
     NSDictionary* info = [NSDictionary dictionaryWithDictionary:mdic];
     
-    NSString *jsonStr = [info JSONString];
+    //NSString *jsonStr = [info JSONString];
+    
+    NSError * writeError = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:info options:NSJSONWritingPrettyPrinted error:&writeError];
+    NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+
+    
     
     NSString *urlAsString = SERVER_URL;
     
@@ -806,7 +815,9 @@
     
     [urlRequest setHTTPMethod:@"POST"];
     
-    NSString *body = [NSString stringWithFormat:@"functionName=%@&json=%@}",FUNC_DUMMYARCHIVES,jsonStr];
+    NSString *body = [NSString stringWithFormat:@"functionName=%@&json= %@",FUNC_DUMMYARCHIVES,jsonStr];
+    
+    
     
     [urlRequest setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
     
@@ -862,9 +873,10 @@
              NSLog(@"Error happened = %@", error);
          }
          
-         [self performSelectorOnMainThread:@selector(removeLoading) withObject:nil waitUntilDone:YES];
+         //[self performSelectorOnMainThread:@selector(removeLoading) withObject:nil waitUntilDone:YES];
      }];
     //[self addViewToArchieves];
+    [self performSelector:@selector(removeLoading) withObject:nil afterDelay:2.0];
 }
 
 - (void) getQuizBYArchieveFromServer

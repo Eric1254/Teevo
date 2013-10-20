@@ -24,7 +24,7 @@
 #define FUNC_TODAYS_QUIZ @"gettodaysquiz"
 #define FUNC_MY_TEEVO @"getmyteevo"
 #define FUNC_QUIZ_ARCHIEVE @"getarchives"
-#define FUNC_DUMMYARCHIVES @"dummyarchives"
+#define FUNC_DUMMYARCHIVES @"getarchivesbyquizid"
 #define FUNC_GET_QUIZ_ARCHIVE @"getquizbyarchives"
 #define FUNC_ADDPOINTS @"addpoints"
 #define FUNC_GETALLPOINTS @"getallpoints"
