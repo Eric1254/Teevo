@@ -27,7 +27,7 @@
 @property(nonatomic,strong)NSMutableArray * mainArr,*btnSelectionArr,*yearsArr,*monthArr,*monthNameArr;
 
 @property(nonatomic,strong)NSMutableArray* QuiZeIDArr,*QuiZNameArr;
-@property(nonatomic,strong)NSString * QuizeID;
+@property(nonatomic,strong)NSString * QuizeID,*totalPoints;
 
 - (IBAction)btnBackFromTeevoQuestAction:(id)sender;
 - (IBAction)btnMenuTeevoQuestAction:(id)sender;
@@ -101,6 +101,6 @@
 
 
 @property(nonatomic,strong)IBOutlet UILabel*pointLblcount;
-
+@property(nonatomic,strong)NSNumber * monthNumber;
 
 @end

@@ -31,7 +31,7 @@
 #define FUNC_DUMMYALLPOINTS @"dummypoints"
 #define FUNC_GETALLPOINTSBYMONTH @"getallpointsbymonth"
 #define FUNC_DUMMYGETALLPOINTSBYMONTH @"dummypointsbymonth"
-
+#define FUNC_POINTSBYMONTHID @"getpointsbymonthid"
 
 
 #define IPHONE_5 568

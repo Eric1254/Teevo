@@ -716,7 +716,7 @@
          }
      }];
     
-    [self performSelector:@selector( removeLoading) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(removeLoading) withObject:nil afterDelay:1.0];
     
 }
 
@@ -876,7 +876,7 @@
          //[self performSelectorOnMainThread:@selector(removeLoading) withObject:nil waitUntilDone:YES];
      }];
     //[self addViewToArchieves];
-    [self performSelector:@selector(removeLoading) withObject:nil afterDelay:2.0];
+    [self performSelector:@selector(removeLoading) withObject:nil afterDelay:3.0];
 }
 
 - (void) getQuizBYArchieveFromServer
@@ -1225,13 +1225,13 @@
         
         
         NSDictionary * pointDic = [self.allPointArr objectAtIndex:indexPath.row];
-        NSString * totalPoints = [pointDic objectForKey:@"totalpoints"];
-        NSNumber * monthNumber = [pointDic objectForKey:@"month"];
+         self.totalPoints = [pointDic objectForKey:@"totalpoints"];
+        self.monthNumber = [pointDic objectForKey:@"month"];
         
         UILabel * allPoints = (UILabel*)[cell viewWithTag:5001];
-        allPoints.text = totalPoints;
+        allPoints.text = self.totalPoints;
         UILabel * monthsLbl = (UILabel*)[cell viewWithTag:5002];
-        monthsLbl.text = [NSString stringWithFormat:@"Daily devotional %@",[self.monthNameArr objectAtIndex:[monthNumber integerValue]-1]];
+        monthsLbl.text = [NSString stringWithFormat:@"Daily devotional %@",[self.monthNameArr objectAtIndex:[self.monthNumber integerValue]-1]];
         
         return cell;
         
@@ -1364,7 +1364,8 @@
 //        detail.sourceDictionary = self.sourceDictionary;
 //        detail.submitArr = self.submitArr;
 //        detail.answercount = self.answercount;
-        
+        detail.monthNumber = self.monthNumber;
+        detail.totalPoints=self.totalPoints;
         
         [self.navigationController pushViewController: detail animated: YES];
     }else{
