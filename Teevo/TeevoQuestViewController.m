@@ -862,7 +862,7 @@
              NSLog(@"Error happened = %@", error);
          }
          
-         //[self performSelectorOnMainThread:@selector(removeLoading) withObject:nil waitUntilDone:YES];
+         [self performSelectorOnMainThread:@selector(removeLoading) withObject:nil waitUntilDone:YES];
      }];
     //[self addViewToArchieves];
 }
