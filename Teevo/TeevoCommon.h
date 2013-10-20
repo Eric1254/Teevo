@@ -29,6 +29,9 @@
 #define FUNC_ADDPOINTS @"addpoints"
 #define FUNC_GETALLPOINTS @"getallpoints"
 #define FUNC_GETALLPOINTSBYMONTH @"getallpointsbymonth"
+#define FUNC_TREADER_EBOOK @"gettodaysquiz"
+
+
 /*
 
  api url >> http://teevo.lpipl.com/teevo_api/api.php

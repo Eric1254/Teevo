@@ -88,6 +88,10 @@
 		97BD6B9417F92816002DE4EE /* STHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BD6B9317F92816002DE4EE /* STHTTPRequest.m */; };
 		97C9B25617E5A5F600591A66 /* btnVideos.png in Resources */ = {isa = PBXBuildFile; fileRef = 97C9B25417E5A5F600591A66 /* btnVideos.png */; };
 		97C9B25717E5A5F600591A66 /* btnVideoUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 97C9B25517E5A5F600591A66 /* btnVideoUnselected.png */; };
+		CE7A03131812B6B50047A100 /* AllBookCollection.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7A03121812B6B50047A100 /* AllBookCollection.xib */; };
+		CEF24A4018127D5900CAA533 /* TReaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF24A3F18127D5900CAA533 /* TReaderCell.m */; };
+		CEF24A4218127DC400CAA533 /* TReaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF24A4118127DC400CAA533 /* TReaderCell.xib */; };
+		CEF24A451812808100CAA533 /* EbookObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF24A441812808100CAA533 /* EbookObject.m */; };
 		CEF8BBFD17ED6BE3002A3D36 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF8BBFC17ED6BE3002A3D36 /* LoginViewController.m */; };
 		CEF8BC0017ED6C21002A3D36 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF8BBFF17ED6C20002A3D36 /* MainViewController.m */; };
 		CEF8BC0317ED79E2002A3D36 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF8BC0217ED79E1002A3D36 /* RegisterViewController.m */; };
@@ -204,6 +208,12 @@
 		97BD6B9617F92A92002DE4EE /* TeevoCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeevoCommon.h; sourceTree = "<group>"; };
 		97C9B25417E5A5F600591A66 /* btnVideos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btnVideos.png; path = Images/iphone/btnVideos.png; sourceTree = "<group>"; };
 		97C9B25517E5A5F600591A66 /* btnVideoUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btnVideoUnselected.png; path = Images/iphone/btnVideoUnselected.png; sourceTree = "<group>"; };
+		CE7A03121812B6B50047A100 /* AllBookCollection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllBookCollection.xib; sourceTree = "<group>"; };
+		CEF24A3E18127D5900CAA533 /* TReaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TReaderCell.h; sourceTree = "<group>"; };
+		CEF24A3F18127D5900CAA533 /* TReaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TReaderCell.m; sourceTree = "<group>"; };
+		CEF24A4118127DC400CAA533 /* TReaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TReaderCell.xib; sourceTree = "<group>"; };
+		CEF24A431812808100CAA533 /* EbookObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EbookObject.h; sourceTree = "<group>"; };
+		CEF24A441812808100CAA533 /* EbookObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EbookObject.m; sourceTree = "<group>"; };
 		CEF8BBFB17ED6BE3002A3D36 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CEF8BBFC17ED6BE3002A3D36 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		CEF8BBFE17ED6C20002A3D36 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -390,6 +400,12 @@
 				CEF8BC1A17ED82C4002A3D36 /* QnNViewController.m */,
 				CEF8BC1C17ED82D7002A3D36 /* TReaderViewController.h */,
 				CEF8BC1D17ED82D7002A3D36 /* TReaderViewController.m */,
+				CEF24A3E18127D5900CAA533 /* TReaderCell.h */,
+				CEF24A3F18127D5900CAA533 /* TReaderCell.m */,
+				CEF24A4118127DC400CAA533 /* TReaderCell.xib */,
+				CEF24A431812808100CAA533 /* EbookObject.h */,
+				CEF24A441812808100CAA533 /* EbookObject.m */,
+				CE7A03121812B6B50047A100 /* AllBookCollection.xib */,
 				332932441809326C00831D61 /* QuizView.h */,
 				332932451809326C00831D61 /* QuizView.m */,
 				332932471809327D00831D61 /* QuizView.xib */,
@@ -576,6 +592,8 @@
 				8D901CEB180B4B0E00FFDCFF /* arrow-yellow.png in Resources */,
 				8D901CEC180B4B0E00FFDCFF /* cancel.png in Resources */,
 				8D901CED180B4B0E00FFDCFF /* check-green.png in Resources */,
+				CEF24A4218127DC400CAA533 /* TReaderCell.xib in Resources */,
+				CE7A03131812B6B50047A100 /* AllBookCollection.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +632,8 @@
 				8D901D07180B5AF100FFDCFF /* ActionSheetDistancePicker.m in Sources */,
 				8D901D08180B5AF100FFDCFF /* DistancePickerView.m in Sources */,
 				8DBAA1B5180E85F600AFA8C2 /* PointsViewController.m in Sources */,
+				CEF24A4018127D5900CAA533 /* TReaderCell.m in Sources */,
+				CEF24A451812808100CAA533 /* EbookObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
