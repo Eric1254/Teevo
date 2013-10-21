@@ -11,7 +11,7 @@
 #import "STHTTPRequest.h"
 #import "TeevoCommon.h"
 #import "JSONKit.h"
-
+#import "AppDelegate.h"
 @interface LoginViewController ()
 
 @end
@@ -157,7 +157,11 @@
     self.strStatus= [statusDict objectForKey:@"status_msg"];
     NSLog(@"statusMesg = %@",self.strStatus);
     [self removeLoading];
+    NSDictionary *dictData = [self.loginDictionary objectForKey:@"data"];
     
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.strUserId = [NSString stringWithString:[dictData objectForKey:@"userid"]];
+    NSLog(@"dictData = %@",appDelegate.strUserId);
     if ([self.strStatus  isEqualToString:@"Successfull Login."]) {
         [self performSegueWithIdentifier:@"Login" sender:self.btnLogin];
     }
