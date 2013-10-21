@@ -91,6 +91,10 @@
 		97BD6B9417F92816002DE4EE /* STHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BD6B9317F92816002DE4EE /* STHTTPRequest.m */; };
 		97C9B25617E5A5F600591A66 /* btnVideos.png in Resources */ = {isa = PBXBuildFile; fileRef = 97C9B25417E5A5F600591A66 /* btnVideos.png */; };
 		97C9B25717E5A5F600591A66 /* btnVideoUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 97C9B25517E5A5F600591A66 /* btnVideoUnselected.png */; };
+		CEE77F221813E3430058B94A /* TReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE77F211813E3430058B94A /* TReaderViewController.m */; };
+		CEE77F281813E38B0058B94A /* EbookObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE77F241813E38B0058B94A /* EbookObject.m */; };
+		CEE77F291813E38B0058B94A /* TReaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE77F261813E38B0058B94A /* TReaderCell.m */; };
+		CEE77F2A1813E38B0058B94A /* TReaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE77F271813E38B0058B94A /* TReaderCell.xib */; };
 		CEF8BBFD17ED6BE3002A3D36 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF8BBFC17ED6BE3002A3D36 /* LoginViewController.m */; };
 		CEF8BC0017ED6C21002A3D36 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF8BBFF17ED6C20002A3D36 /* MainViewController.m */; };
 		CEF8BC0317ED79E2002A3D36 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF8BC0217ED79E1002A3D36 /* RegisterViewController.m */; };
@@ -102,7 +106,6 @@
 		CEF8BC1517ED827E002A3D36 /* MyPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF8BC1417ED827D002A3D36 /* MyPhotoViewController.m */; };
 		CEF8BC1817ED82AC002A3D36 /* TeevoTalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF8BC1717ED82AC002A3D36 /* TeevoTalkViewController.m */; };
 		CEF8BC1B17ED82C4002A3D36 /* QnNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF8BC1A17ED82C4002A3D36 /* QnNViewController.m */; };
-		CEF8BC1E17ED82D8002A3D36 /* TReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF8BC1D17ED82D7002A3D36 /* TReaderViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -211,6 +214,13 @@
 		97BD6B9617F92A92002DE4EE /* TeevoCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeevoCommon.h; sourceTree = "<group>"; };
 		97C9B25417E5A5F600591A66 /* btnVideos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btnVideos.png; path = Images/iphone/btnVideos.png; sourceTree = "<group>"; };
 		97C9B25517E5A5F600591A66 /* btnVideoUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btnVideoUnselected.png; path = Images/iphone/btnVideoUnselected.png; sourceTree = "<group>"; };
+		CEE77F201813E3430058B94A /* TReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TReaderViewController.h; sourceTree = "<group>"; };
+		CEE77F211813E3430058B94A /* TReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TReaderViewController.m; sourceTree = "<group>"; };
+		CEE77F231813E38B0058B94A /* EbookObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EbookObject.h; sourceTree = "<group>"; };
+		CEE77F241813E38B0058B94A /* EbookObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EbookObject.m; sourceTree = "<group>"; };
+		CEE77F251813E38B0058B94A /* TReaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TReaderCell.h; sourceTree = "<group>"; };
+		CEE77F261813E38B0058B94A /* TReaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TReaderCell.m; sourceTree = "<group>"; };
+		CEE77F271813E38B0058B94A /* TReaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TReaderCell.xib; sourceTree = "<group>"; };
 		CEF8BBFB17ED6BE3002A3D36 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CEF8BBFC17ED6BE3002A3D36 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		CEF8BBFE17ED6C20002A3D36 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -233,8 +243,6 @@
 		CEF8BC1717ED82AC002A3D36 /* TeevoTalkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeevoTalkViewController.m; sourceTree = "<group>"; };
 		CEF8BC1917ED82C3002A3D36 /* QnNViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QnNViewController.h; sourceTree = "<group>"; };
 		CEF8BC1A17ED82C4002A3D36 /* QnNViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QnNViewController.m; sourceTree = "<group>"; };
-		CEF8BC1C17ED82D7002A3D36 /* TReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TReaderViewController.h; sourceTree = "<group>"; };
-		CEF8BC1D17ED82D7002A3D36 /* TReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TReaderViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -404,11 +412,16 @@
 				CEF8BC1317ED827D002A3D36 /* MyPhotoViewController.h */,
 				CEF8BC1417ED827D002A3D36 /* MyPhotoViewController.m */,
 				CEF8BC1617ED82AB002A3D36 /* TeevoTalkViewController.h */,
+				CEE77F201813E3430058B94A /* TReaderViewController.h */,
+				CEE77F211813E3430058B94A /* TReaderViewController.m */,
+				CEE77F231813E38B0058B94A /* EbookObject.h */,
+				CEE77F241813E38B0058B94A /* EbookObject.m */,
+				CEE77F251813E38B0058B94A /* TReaderCell.h */,
+				CEE77F261813E38B0058B94A /* TReaderCell.m */,
+				CEE77F271813E38B0058B94A /* TReaderCell.xib */,
 				CEF8BC1717ED82AC002A3D36 /* TeevoTalkViewController.m */,
 				CEF8BC1917ED82C3002A3D36 /* QnNViewController.h */,
 				CEF8BC1A17ED82C4002A3D36 /* QnNViewController.m */,
-				CEF8BC1C17ED82D7002A3D36 /* TReaderViewController.h */,
-				CEF8BC1D17ED82D7002A3D36 /* TReaderViewController.m */,
 				332932441809326C00831D61 /* QuizView.h */,
 				332932451809326C00831D61 /* QuizView.m */,
 				332932471809327D00831D61 /* QuizView.xib */,
@@ -597,6 +610,7 @@
 				8D901CED180B4B0E00FFDCFF /* check-green.png in Resources */,
 				8D14735818137D6C00485B0A /* PleaseWait_iPhone.xib in Resources */,
 				8D14735A18137D6C00485B0A /* PleaseWait.xib in Resources */,
+				CEE77F2A1813E38B0058B94A /* TReaderCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,7 +635,6 @@
 				CEF8BC1517ED827E002A3D36 /* MyPhotoViewController.m in Sources */,
 				CEF8BC1817ED82AC002A3D36 /* TeevoTalkViewController.m in Sources */,
 				CEF8BC1B17ED82C4002A3D36 /* QnNViewController.m in Sources */,
-				CEF8BC1E17ED82D8002A3D36 /* TReaderViewController.m in Sources */,
 				97BD6B9417F92816002DE4EE /* STHTTPRequest.m in Sources */,
 				332932411809133100831D61 /* JSONKit.m in Sources */,
 				332932461809326C00831D61 /* QuizView.m in Sources */,
@@ -636,6 +649,9 @@
 				8D901D08180B5AF100FFDCFF /* DistancePickerView.m in Sources */,
 				8DBAA1B5180E85F600AFA8C2 /* PointsViewController.m in Sources */,
 				8D14735918137D6C00485B0A /* PleaseWait.m in Sources */,
+				CEE77F221813E3430058B94A /* TReaderViewController.m in Sources */,
+				CEE77F281813E38B0058B94A /* EbookObject.m in Sources */,
+				CEE77F291813E38B0058B94A /* TReaderCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

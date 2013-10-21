@@ -44,7 +44,7 @@ static NSString * const kCellReuseIdentifier = @"collectionViewCell";
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.forSection = 0;
-    
+    [self getTodaysQuizFromServer];
     
     
     
@@ -102,7 +102,8 @@ static NSString * const kCellReuseIdentifier = @"collectionViewCell";
     
     
     
-    self.arrForEBook = [[NSMutableArray alloc] initWithObjects: objEBook1, objEBook2, objEBook3,nil];
+//    self.arrForEBook = [[NSMutableArray alloc] initWithObjects: objEBook1, objEBook2, objEBook3,nil];
+    self.arrForEBook = [[NSMutableArray alloc] init];
     self.arrForEComics = [[NSMutableArray alloc] initWithObjects: objEBook1, objEBook2,nil];
     self.arrDevotional = [[NSMutableArray alloc] initWithObjects: objEBook1, objEBook2, objEBook3,nil];
     
@@ -114,7 +115,7 @@ static NSString * const kCellReuseIdentifier = @"collectionViewCell";
 //    [self.collectionAllBook setCollectionViewLayout:flowLayout];
 //    [self.collectionAllBook setCollectionViewLayout:flowLayout];
     [self.collectionAllBook setAllowsSelection:YES];
-    [self getTodaysQuizFromServer];
+    
 }
 
 
@@ -244,9 +245,9 @@ static NSString * const kCellReuseIdentifier = @"collectionViewCell";
 
     cell.cellDelegate = self;
     cell.lblFirstBook.text = objEBook.txtFirstBookName;
-    cell.lblSecondBook.text = objEBook.txtSecondBookName;
-    cell.lblThirdBook.text = objEBook.txtThirdBookName;
-    cell.lblFourthBook.text = objEBook.txtFourthBookName;
+    cell.lblSecondBook.text = objEBook.txtFirstBookName;
+    cell.lblThirdBook.text = objEBook.txtFirstBookName;
+    cell.lblFourthBook.text = objEBook.txtFirstBookName;
     
     [cell.btnFirstBook setImage:[UIImage imageNamed:objEBook.txtFirstBookImg] forState:UIControlStateNormal];
     [cell.btnSecondBook setImage:[UIImage imageNamed:objEBook.txtSecondBookImg] forState:UIControlStateNormal];
@@ -342,21 +343,13 @@ static NSString * const kCellReuseIdentifier = @"collectionViewCell";
 - (void) getTodaysQuizFromServer
 {
     NSString *urlAsString = SERVER_URL;
-    
     NSURL *url = [NSURL URLWithString:urlAsString];
-    
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-    
     [urlRequest setTimeoutInterval:60.0f];
-    
     [urlRequest setHTTPMethod:@"POST"];
-    
     NSString *body =  @"functionName=get_treader&json={\"catid\":\"1\"}";//[NSString stringWithFormat:@"functionName=get_treader&json=",FUNC_TREADER_EBOOK,@""];
-    
     [urlRequest setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
-    
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    
     [NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *jsonData, NSError *error)
      {
          if ([jsonData length] >0 && error == nil)
@@ -365,23 +358,13 @@ static NSString * const kCellReuseIdentifier = @"collectionViewCell";
                                      initWithParseOptions:JKParseOptionNone];
              id json = [decoder objectWithData:jsonData];
              
-             NSLog(@"Got Data: %@ ",json);
+//             NSLog(@"Got Data: %@ ",json);
+             
              self.sourceDictionary = [[NSDictionary alloc] initWithDictionary:json];
+             [self addDataToEbook];
              if (json != nil && error == nil)
              {
                  NSLog(@"Successfully deserialized... json = %@",json);
-                 
-
-                 // self.QuizString = @"ArchiveQuiz";
-
-                 
-                 //                 if ([self.QuizString isEqualToString:@"TodayQuiz"]) {
-                 //
-                 //                 }else if ([self.QuizString isEqualToString:@"ArchiveQuiz"]){
-                 //
-                 //                 }else{
-                 //
-                 //                 }
                  
              }
              else if (error != nil)
@@ -402,6 +385,36 @@ static NSString * const kCellReuseIdentifier = @"collectionViewCell";
      }];
     //[self addViewToTodaysQuiz];
 }
+
+
+
+
+-(void)addDataToEbook{
+    
+    NSMutableArray *yourMutableArray = [[NSMutableArray alloc]init];
+    NSArray * dataArr = [self.sourceDictionary objectForKey:@"data"];
+
+    NSDictionary *dataDict = [dataArr objectAtIndex:0];
+    NSLog(@"dataDict = %@",dataDict);
+    int dataCount = [[dataDict allValues] count] - 2;
+    for (int i = 0; i < dataCount; i++)
+    {
+        NSDictionary *srcDict = [dataDict objectForKey:[NSString stringWithFormat:@"%d",i]];
+        
+
+        EbookObject *objEbook = [[EbookObject alloc]init];
+        objEbook.txtFirstBookName = [srcDict objectForKey:@"bookname"];
+
+        
+        [self.arrForEBook addObject:objEbook];
+        
+    }
+
+    [self.tblViewReader reloadData];
+}
+
+//
+
 
 
 
