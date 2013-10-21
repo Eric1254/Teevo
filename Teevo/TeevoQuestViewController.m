@@ -150,6 +150,9 @@
     [self getTodaysQuizFromServer];
     [self getPointsData];
     
+    self.PickerView.hidden = YES;
+    self.myTableView.frame = CGRectMake(0, 100, self.myTableView.frame.size.height, self.myTableView.frame.size.height+40);
+    
     
     
 }
@@ -793,7 +796,7 @@
 {
     NSMutableDictionary * mdic = [[NSMutableDictionary alloc] init];
     
-    [mdic setObject:@"3" forKey:@"quizid"];
+    [mdic setObject:self.QuizeID forKey:@"quizid"];
     //[mdic setObject:self.yearsLbl.text forKey:@"year"];
     NSDictionary* info = [NSDictionary dictionaryWithDictionary:mdic];
     
