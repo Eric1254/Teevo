@@ -17,6 +17,7 @@
 #import "ActionSheetStringPicker.h"
 #import "PointsViewController.h"
 #import "PleaseWait.h"
+#import "AppDelegate.h"
 @interface TeevoQuestViewController ()
 
 @end
@@ -143,6 +144,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     self.answercount = 0;
+    self.submitArr = nil;
     self.submitArr = [NSMutableArray array];
     self.SelectionArr = [[NSMutableArray alloc] init];
     self.selectedIndexArr = [[NSMutableArray alloc] init];
@@ -187,7 +189,11 @@
 -(void)updateArchiveQuizWithAnswer{
     NSMutableDictionary * mdic = [[NSMutableDictionary alloc] init];
     
-    [mdic setObject:@"3" forKey:@"userid"];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    //appDelegate.strUserId =
+    //[mdic setObject:@"3" forKey:@"userid"];
+
+    [mdic setObject:appDelegate.strUserId forKey:@"userid"];
     [mdic setObject:[NSString stringWithFormat:@"%d",[self.todayQuizID intValue] ] forKey:@"quizid"];
     NSString * points = [NSString stringWithFormat:@"%d",self.selectedIndexArr.count];
     [mdic setObject:points forKey:@"points"];
@@ -263,8 +269,12 @@
 
 -(void)updateTodayQuizWithAnswer{
     NSMutableDictionary * mdic = [[NSMutableDictionary alloc] init];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    //appDelegate.strUserId =
+    //[mdic setObject:@"3" forKey:@"userid"];
     
-    [mdic setObject:@"3" forKey:@"userid"];
+    [mdic setObject:appDelegate.strUserId forKey:@"userid"];
+    //[mdic setObject:@"3" forKey:@"userid"];
     [mdic setObject:[NSString stringWithFormat:@"%d",[self.todayQuizID intValue] ] forKey:@"quizid"];
     NSString * points = [NSString stringWithFormat:@"%d",self.selectedIndexArr.count];
     [mdic setObject:points forKey:@"points"];
@@ -560,7 +570,12 @@
 -(void)getListofPoint{
     NSMutableDictionary * mdic = [[NSMutableDictionary alloc] init];
     //{"userid":"3"}
-    [mdic setObject:@"3" forKey:@"userid"];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    //appDelegate.strUserId =
+    //[mdic setObject:@"3" forKey:@"userid"];
+    
+    [mdic setObject:appDelegate.strUserId forKey:@"userid"];
+    //[mdic setObject:@"3" forKey:@"userid"];
     //[mdic setObject:self.yearsLbl.text forKey:@"year"];
     NSDictionary* info = [NSDictionary dictionaryWithDictionary:mdic];
     
@@ -644,7 +659,12 @@
     [self AddLoading];
     NSMutableDictionary * mdic = [[NSMutableDictionary alloc] init];
     //{"userid":"3"}
-    [mdic setObject:@"3" forKey:@"userid"];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    //appDelegate.strUserId =
+    //[mdic setObject:@"3" forKey:@"userid"];
+    NSLog(@"appDelegate.strUserId:%@",appDelegate.strUserId);
+    [mdic setObject:appDelegate.strUserId forKey:@"userid"];
+    //[mdic setObject:@"3" forKey:@"userid"];
     //[mdic setObject:self.yearsLbl.text forKey:@"year"];
     NSDictionary* info = [NSDictionary dictionaryWithDictionary:mdic];
     
